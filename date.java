@@ -1,18 +1,26 @@
-
-//Имеются три числа - день, месяц и год, вводимые пользователем с консоли.
+package com.itacademy.hw3;
+//        Имеются три числа - день, месяц и год, вводимые пользователем с консоли.
 //        Вывести дату следующего дня в формате "День.Месяц.Год".
 //        Учесть переход на следующий месяц, а также следующий год.
-//         Форматирование строки "День.Месяц.Год" вынести в отдельную функцию.
+//        Форматирование строки "День.Месяц.Год" вынести в отдельную функцию.
 
 
 public class date {
 
     public static void main(String[] args) {
-        int day = 33;
-        int month = 12;
-        int year = 2020;
+        int day = 29;
+        int month = 2;
+        int year = 2021;
         System.out.println(day + "." + month + "." + year);
-        if (day < 28) {
+
+        if (day == 29 && month == 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
+            day = 1;
+            month = 3;
+            System.out.println(day + "." + month + "." + year);
+        } else if (day == 28 && month == 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
+            day = 29;
+            System.out.println(day + "." + month + "." + year);
+        } else if (day < 28) {
             day = day + 1;
             System.out.println(day + "." + month + "." + year);
         } else if (day == 28 && month == 2) {
